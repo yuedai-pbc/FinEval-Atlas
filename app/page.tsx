@@ -1,6 +1,6 @@
 import Explorer from "./explorer";
 import benchmarks from "../data/benchmarks.json";
-import finsearchRaw from "../data/raw/finsearchcomp_data.json";
+import finsearchRaw from "../data/raw/finsearchcomp_demo.json";
 import FinChainSection from "./finchain-section";
 import PaperLibrary from "./paper-library";
 import BenchmarkDeepDives from "./benchmark-deep-dives";
