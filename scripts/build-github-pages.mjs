@@ -7,10 +7,16 @@ const outputRoot = path.join(projectRoot, "pages-dist");
 const repositoryName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "FinEval-Atlas";
 const basePath = `/${repositoryName}`;
 const pagesOrigin = process.env.GITHUB_PAGES_ORIGIN ?? "https://yuedai-pbc.github.io";
+const appBasePath = process.env.GITHUB_PAGES_ORIGIN ? basePath : "";
 
 await rm(outputRoot, { recursive: true, force: true });
 await mkdir(outputRoot, { recursive: true });
 await cp(path.join(projectRoot, "dist", "client"), outputRoot, { recursive: true });
+if (appBasePath) {
+  const nestedClientRoot = path.join(outputRoot, repositoryName);
+  await cp(nestedClientRoot, outputRoot, { recursive: true, force: true });
+  await rm(nestedClientRoot, { recursive: true, force: true });
+}
 
 const workerPath = path.join(projectRoot, "dist", "server", "index.js");
 const workerUrl = pathToFileURL(workerPath);
@@ -37,7 +43,7 @@ function rewriteForPages(html, route) {
 
 async function renderRoute(route, destination) {
   const response = await worker.fetch(
-    new Request(`http://localhost${route}`, { headers: { accept: "text/html" } }),
+    new Request(`http://localhost${appBasePath}${route}`, { headers: { accept: "text/html" } }),
     { ASSETS: assetBinding },
     { waitUntil() {}, passThroughOnException() {} },
   );
