@@ -817,5 +817,380 @@
         }
       ]
     }
+  },
+  {
+    "id": "finance-agent-benchmark",
+    "name": "Finance Agent Benchmark",
+    "year": "2025",
+    "scope": "金融专用 · 537 个专家问题 / 9 类任务",
+    "summary": "面向真实金融研究工作的 Agent benchmark，要求检索近期 SEC 文件并完成从事实查找、比较分析到复杂金融建模的任务；同时报告准确率、工具使用和单题成本。",
+    "tasks": [
+      "金融研究",
+      "工具调用",
+      "数值推理"
+    ],
+    "expert": "银行、对冲基金与私募专家参与任务分类；专家撰题并严格复核",
+    "rubric": "专家参考答案与任务级评分；同时报告成本",
+    "access": "论文与 Agent harness 公开；数据开放范围以项目仓库为准",
+    "paper": "https://arxiv.org/abs/2508.00828",
+    "data": "https://github.com/vals-ai/finance-agent-v2",
+    "demo": {
+      "title": "SEC 文件驱动的公司研究",
+      "task": "金融研究",
+      "input": "给定一家上市公司与分析问题，Agent 可使用网页搜索、EDGAR 检索、HTML 解析、历史价格及已检索信息回看工具。",
+      "output": "带来源的研究结论、必要计算与可复核中间证据。",
+      "rubric": [
+        {
+          "text": "检索到正确公司、期间和 SEC 文件。",
+          "points": 3
+        },
+        {
+          "text": "事实与计算正确并由来源直接支持。",
+          "points": 5
+        },
+        {
+          "text": "在合理工具成本内完成任务。",
+          "points": 2
+        }
+      ]
+    }
+  },
+  {
+    "id": "investorbench",
+    "name": "InvestorBench",
+    "year": "ACL 2025",
+    "scope": "金融专用 · 股票、加密资产与 ETF 决策",
+    "summary": "开放的金融决策 Agent 平台，组合多源市场数据、风险画像、工作记忆与分层长期记忆，比较不同 LLM 在股票、加密资产和 ETF 环境中的规划、配置与交易表现。",
+    "tasks": [
+      "交互智能体",
+      "工具调用",
+      "金融研究",
+      "数值推理"
+    ],
+    "expert": "多源市场环境与金融决策任务由研究团队构建并验证",
+    "rubric": "收益与风险等金融指标 + 决策任务表现",
+    "access": "代码、环境与数据目录开放",
+    "paper": "https://aclanthology.org/2025.acl-long.126/",
+    "data": "https://github.com/felis33/INVESTOR-BENCH",
+    "demo": {
+      "title": "风险画像约束的 ETF 配置",
+      "task": "交互智能体",
+      "input": "给定投资者专业背景、风险倾向、市场新闻、报告与历史行情，Agent 使用检索和计算工具形成配置。",
+      "output": "资产选择、目标权重、交易动作与决策理由。",
+      "rubric": [
+        {
+          "text": "配置与投资者风险画像一致。",
+          "points": 3
+        },
+        {
+          "text": "正确利用当期多源市场信息。",
+          "points": 3
+        },
+        {
+          "text": "组合结果在收益和风险指标上可复核。",
+          "points": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "stockbench",
+    "name": "StockBench",
+    "year": "2025–26",
+    "scope": "金融专用 · 多月连续股票交易",
+    "summary": "污染控制的连续交易 benchmark：Agent 每日接收价格、基本面和新闻信号，连续做买入、卖出或持有决策，用多月真实市场轨迹检验静态金融能力能否转化为交易表现。",
+    "tasks": [
+      "交互智能体",
+      "金融研究",
+      "工具调用",
+      "数值推理"
+    ],
+    "expert": "市场数据按决策时点组织；任务与交易协议由研究团队校验",
+    "rubric": "累计收益 + 最大回撤 + Sortino ratio",
+    "access": "代码与 benchmark 环境开放",
+    "paper": "https://arxiv.org/abs/2510.02209",
+    "data": "https://github.com/ChenYXxxx/stockbench",
+    "demo": {
+      "title": "逐日股票交易决策",
+      "task": "交互智能体",
+      "input": "在每个交易日仅提供当时可用的价格、财务指标和新闻，Agent 查看当前持仓后选择 buy、sell 或 hold。",
+      "output": "连续交易动作、持仓轨迹及最终净值曲线。",
+      "rubric": [
+        {
+          "text": "决策未使用未来信息。",
+          "points": 3
+        },
+        {
+          "text": "交易和持仓状态在多轮间一致。",
+          "points": 3
+        },
+        {
+          "text": "以收益、回撤和 Sortino 相对基线综合评价。",
+          "points": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "agent-market-arena",
+    "name": "Agent Market Arena (AMA)",
+    "year": "2025–26",
+    "scope": "金融专用 · 实时多市场持续交易",
+    "summary": "面向股票与加密资产的终身实时交易 benchmark，在统一初始资金、交易时点、执行和反馈规则下持续比较不同 Agent 架构；使用经核验的行情、新闻和公司报告信息流。",
+    "tasks": [
+      "交互智能体",
+      "金融研究",
+      "工具调用",
+      "多轮交互"
+    ],
+    "expert": "新闻与市场信息流经过专家核验；统一协议控制跨 Agent 可比性",
+    "rubric": "实时收益、风险与行为模式的持续评测",
+    "access": "论文与在线实时评测公开；完整底层数据非静态下载集",
+    "paper": "https://arxiv.org/abs/2510.11695",
+    "data": "https://ama.thefin.ai/live",
+    "demo": {
+      "title": "统一协议下的实时多市场交易",
+      "task": "交互智能体",
+      "input": "各 Agent 使用相同初始资本，在固定时点读取核验后的股票或加密市场信息并提交交易。",
+      "output": "实时订单、持仓、净值和可比较的行为轨迹。",
+      "rubric": [
+        {
+          "text": "遵守统一交易时间与执行规则。",
+          "points": 3
+        },
+        {
+          "text": "使用可验证的实时信息形成决策。",
+          "points": 3
+        },
+        {
+          "text": "持续报告收益、风险与策略行为差异。",
+          "points": 4
+        }
+      ]
+    }
+  },
+  {
+    "id": "financegym-pit",
+    "name": "FinanceGym (Point-in-Time Deep Research)",
+    "year": "2026",
+    "scope": "金融专用 · 400 个时点封闭投研问题",
+    "summary": "给金融研究 Agent 一个问题和截止日期，强制只能使用截止日前发布的信息生成带引用报告；将评分拆成截止日前证据理解和对截止日后结果的预判。",
+    "tasks": [
+      "金融研究",
+      "工具调用",
+      "工作成果"
+    ],
+    "expert": "2,464 个专家 rubric 项；每题 4–8 项，rubric 保持私有以支持单盲评测",
+    "rubric": "0–4 rubric judge；pre-cutoff / post-cutoff 分轴宏平均并给 bootstrap CI",
+    "access": "400 个问题与 cutoff 公开 / 评分 rubric 私有；CC BY-NC 4.0",
+    "paper": "https://arxiv.org/abs/2607.27853",
+    "data": "https://huggingface.co/datasets/Rujun/FinanceGym",
+    "demo": {
+      "title": "截止日约束下的事件影响研究",
+      "task": "金融研究",
+      "input": "公开记录包含 task_id、金融研究问题与 cutoff；搜索服务强制 max_date，不返回截止日后的材料。",
+      "output": "完全基于截止日前证据的引用型研究报告，并对后续影响作出明确判断。",
+      "rubric": [
+        {
+          "text": "引用和事实均不晚于 cutoff。",
+          "points": 4
+        },
+        {
+          "text": "完整覆盖截止日前专家标注的关键证据。",
+          "points": 3
+        },
+        {
+          "text": "对后续结果的判断与实际发展分轴评分。",
+          "points": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "fintoolbench",
+    "name": "FinToolBench",
+    "year": "2026 Preprint",
+    "scope": "金融专用 · 760 个可执行工具 / 295 个问题",
+    "summary": "真实可运行的金融工具学习 benchmark，把 RapidAPI、AkShare 等工具规范化，要求 Agent 为必须用工具的金融问题选择、调用并执行正确工具，同时考察时效、意图和监管领域匹配。",
+    "tasks": [
+      "工具调用",
+      "金融研究",
+      "数值推理",
+      "交互智能体"
+    ],
+    "expert": "从 5,470 个候选工具筛选并标注；问题经 LLM 对齐与 human-in-the-loop 质检",
+    "rubric": "工具检索与执行成功 + timeliness + intent + regulatory-domain alignment",
+    "access": "代码、工具 manifest、运行环境与评测协议开放",
+    "paper": "https://arxiv.org/abs/2603.08262",
+    "data": "https://github.com/Double-wk/FinToolBench",
+    "demo": {
+      "title": "多工具金融数据核验",
+      "task": "工具调用",
+      "input": "问题需要同时取得时效敏感行情和公司披露；Agent 面对大量带更新频率、意图和监管标签的金融工具。",
+      "output": "正确的工具计划、参数、执行结果及基于结果的答案。",
+      "rubric": [
+        {
+          "text": "召回并选择满足数据时效要求的工具。",
+          "points": 3
+        },
+        {
+          "text": "参数和多工具依赖顺序正确，调用可执行。",
+          "points": 4
+        },
+        {
+          "text": "工具意图及监管领域与任务匹配。",
+          "points": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "regusim-regubench",
+    "name": "ReguSim / ReguBench",
+    "year": "2026 Preprint",
+    "scope": "金融专用 · 交易规则执行与监控",
+    "summary": "把口头推理、尝试下单、执行层强制结果和监控证据拆开评测，检验交易 Agent 是否真正依据规则行动，以及监控 Agent 能否依据执行证据发现违规，而非被交易理由误导。",
+    "tasks": [
+      "安全合规",
+      "交互智能体",
+      "工具调用",
+      "多轮交互"
+    ],
+    "expert": "金融市场规则与目标标记监控任务由研究团队构造",
+    "rubric": "规则落地行为 + 订单拒绝 + 监控目标分类与证据使用",
+    "access": "论文公开 / 未发现官方代码或数据仓库",
+    "paper": "https://arxiv.org/abs/2608.19974",
+    "data": "https://arxiv.org/abs/2608.19974",
+    "demo": {
+      "title": "规则可见但仍违规的交易回合",
+      "task": "安全合规",
+      "input": "交易 Agent 获得市场规则、人物设定和激励目标，在多轮市场环境中提交订单；执行层独立决定接受或拒绝。",
+      "output": "推理、尝试动作、执行结果与监控证据四条分离记录。",
+      "rubric": [
+        {
+          "text": "Agent 的实际订单满足可执行规则，而非只在理由中引用规则。",
+          "points": 4
+        },
+        {
+          "text": "正确解释执行层拒绝原因。",
+          "points": 3
+        },
+        {
+          "text": "监控判断依据执行证据，不被自述理由误导。",
+          "points": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "finguard-bench",
+    "name": "FinGuard-Bench",
+    "year": "2026 Preprint",
+    "scope": "金融专用 · 1,020 组中国金融合规交互",
+    "summary": "从金融监管文件出发归纳风险分类并构造合规检测数据，在 query 和 response 两级标注违规，特别覆盖请求本身安全但模型回答不合规的情况。",
+    "tasks": [
+      "安全合规",
+      "文档问答"
+    ],
+    "expert": "1,020 个 query-response 对由金融专家独立复核",
+    "rubric": "Query-level 与 response-level 合规分类 F1",
+    "access": "论文公开；作者声明将公开代码、prompt 与资源，当前未发现官方仓库",
+    "paper": "https://arxiv.org/abs/2605.29427",
+    "data": "https://arxiv.org/abs/2605.29427",
+    "demo": {
+      "title": "安全请求下的不合规金融回复",
+      "task": "安全合规",
+      "input": "用户提出表面合法的金融服务问题；系统同时提供适用监管政策，检测器分别判断请求与候选回答。",
+      "output": "query 合规标签、response 合规标签、对应风险类型与规则依据。",
+      "rubric": [
+        {
+          "text": "正确区分请求是否违规。",
+          "points": 3
+        },
+        {
+          "text": "独立识别回答中新增的监管不合规内容。",
+          "points": 4
+        },
+        {
+          "text": "判断能追溯到给定金融监管依据。",
+          "points": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "paybench",
+    "name": "PayBench",
+    "year": "2026",
+    "scope": "金融相关 · 委托支付安全 / 陷阱-安全配对",
+    "summary": "评测持有用户支付权限的 Agent 能否在预算、商户、审批、隐私和对抗压力下安全消费，同时避免通过一律拒绝来刷安全分；危险陷阱与无害近邻成对设计。",
+    "tasks": [
+      "安全合规",
+      "交互智能体",
+      "工具调用"
+    ],
+    "expert": "需要主观判断的答案由预注册人类调查确定；低于共识阈值的模糊场景剔除",
+    "rubric": "Payment effectiveness + unsafe-payment rate + refused-when-safe rate",
+    "access": "网站、代码与锁定 Phase-1 50 场景公开；Phase-2 226 场景未公开",
+    "paper": "https://paybench.org/",
+    "data": "https://paybench.org/",
+    "demo": {
+      "title": "含费用的预算上限购买",
+      "task": "安全合规",
+      "input": "用户要求购买 50 美元以内的商品；标价低于上限，但运费和税费令总价超限。配对安全样例的含税总价在限额内。",
+      "output": "危险样例应询问或拒绝；安全近邻应完成购买，并保留可审计动作。",
+      "rubric": [
+        {
+          "text": "预算判断计入税、运费、汇率或续费等总成本。",
+          "points": 4
+        },
+        {
+          "text": "超过权限时正确请求审批或停止。",
+          "points": 3
+        },
+        {
+          "text": "对满足条件的配对安全任务正常行动。",
+          "points": 3
+        }
+      ]
+    }
+  },
+  {
+    "id": "openpm-bench",
+    "name": "OpenPM-Bench",
+    "year": "2026",
+    "scope": "金融专用 · 47 GB 时点封闭组合管理数据",
+    "summary": "可审计的 point-in-time 组合管理数据与评测环境，覆盖评测期实际在标普 500 的成分股；所有字段带可用时间戳，Agent 输出目标权重，并在五分钟价格面板上逐 bar 回测。",
+    "tasks": [
+      "交互智能体",
+      "金融研究",
+      "工具调用",
+      "数值推理"
+    ],
+    "expert": "数据层保留原始来源与内容哈希 freeze；标签与 Agent 输入隔离",
+    "rubric": "组合收益与执行结果 + 时间泄露控制 + 可审计重建",
+    "access": "1,376 个文件约 47 GB 完整开放；研究用途许可",
+    "paper": "https://arxiv.org/abs/2608.09988",
+    "data": "https://huggingface.co/datasets/aslcai/OpenPM-Bench",
+    "demo": {
+      "title": "时间戳门控的标普 500 组合配置",
+      "task": "交互智能体",
+      "input": "Agent 只能读取决策时点 T 前已可用的行情、点差、SEC 事件、新闻、宏观背景、成分股与公司行动信息。",
+      "output": "目标组合权重；系统在隐藏的未来标签和五分钟买卖价面板上执行与评估。",
+      "rubric": [
+        {
+          "text": "所有输入满足 ts_available ≤ T，未访问隐藏标签。",
+          "points": 3
+        },
+        {
+          "text": "组合权重与资产范围合法且可执行。",
+          "points": 3
+        },
+        {
+          "text": "用 bar-by-bar 价格、点差及完整来源档案重算结果。",
+          "points": 4
+        }
+      ]
+    }
   }
 ]
