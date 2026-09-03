@@ -1192,5 +1192,44 @@
         }
       ]
     }
+  },
+  {
+    "id": "risctrade",
+    "name": "RISCTrade",
+    "year": "2025–26",
+    "scope": "金融专用 · A股、港股、美股闭环交易",
+    "summary": "动态多市场闭环交易 benchmark，重点审计 Risk-Instruction and Strategy-Compliance：在连续滑动窗口、真实交易摩擦和券商强制约束下，检查 Agent 是否按激进、中性、保守等风险 mandate 调整行为。",
+    "tasks": [
+      "交互智能体",
+      "金融研究",
+      "工具调用",
+      "数值推理",
+      "安全合规"
+    ],
+    "expert": "多源金融数据、风险画像脚手架与市场执行规则由研究团队构建",
+    "rubric": "收益与回撤 + 趋势适应 + 风险 mandate 单调一致性",
+    "access": "项目页、代码与数据仓库公开",
+    "paper": "https://risctrade.github.io/",
+    "data": "https://github.com/LJK666666666/Q_dynastock",
+    "demo": {
+      "title": "三类风险授权下的跨市场闭环交易",
+      "task": "交互智能体",
+      "input": "在 A股、港股或美股滑动窗口中，Agent 获得多源当期数据及 Aggressive、Neutral 或 Conservative 风险指令；券商层强制最小交易单位、资金、结算和交易成本约束。",
+      "output": "连续交易决策、实际成交、持仓更新、净值与风险画像一致性轨迹。",
+      "rubric": [
+        {
+          "text": "订单满足市场最小交易单位、资金、结算及成本约束。",
+          "points": 3
+        },
+        {
+          "text": "在同一市场条件下，风险暴露随 Aggressive→Neutral→Conservative 合理变化。",
+          "points": 4
+        },
+        {
+          "text": "同时报告收益、最大回撤及不同市场 regime 下的适应表现。",
+          "points": 3
+        }
+      ]
+    }
   }
 ]
