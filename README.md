@@ -1,5 +1,7 @@
 # FinEval Atlas
 
+🌐 在线浏览：https://yuedai-pbc.github.io/FinEval-Atlas/
+
 面向金融大模型评测设计的开放研究仓库。它不是简单的论文列表，而是把每个 benchmark 拆成可比较的任务、样例、专家机制与评分 rubric，并通过网页可视化呈现。
 
 ## 内容结构
