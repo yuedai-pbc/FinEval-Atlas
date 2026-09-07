@@ -1,0 +1,360 @@
+[
+  {
+    "id": "bbt-fin",
+    "name": "BBT-FinT5",
+    "year": "2023",
+    "organization": "Fudan University",
+    "parameters": "T5 系列",
+    "baseModel": "Mengzi-T5",
+    "languages": [
+      "中文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "领域预训练",
+    "access": "开放权重",
+    "license": "以仓库为准",
+    "focus": [
+      "金融理解",
+      "金融生成"
+    ],
+    "summary": "中文金融预训练模型与 300GB BBT-FinCorpus、BBT-CFLEB 一体发布，是金融 LLM 浪潮前的重要开放基线。",
+    "paper": "https://arxiv.org/abs/2302.09432",
+    "code": "https://github.com/ssymmetry/BBT-FinCUGE-Applications",
+    "model": "https://github.com/ssymmetry/BBT-FinCUGE-Applications",
+    "evidence": "论文 + 官方仓库"
+  },
+  {
+    "id": "bloomberggpt",
+    "name": "BloombergGPT",
+    "year": "2023",
+    "organization": "Bloomberg",
+    "parameters": "50B",
+    "baseModel": "自研 decoder-only",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "从头预训练",
+    "access": "论文公开 / 权重未公开",
+    "license": "未公开",
+    "focus": [
+      "金融知识",
+      "金融 NLP",
+      "通用能力"
+    ],
+    "summary": "在 363B 金融 token 与 345B 通用 token 上训练的 50B 模型；代表“专有金融语料 + 通用语料”路线，但模型权重和训练数据未开放。",
+    "paper": "https://arxiv.org/abs/2303.17564",
+    "code": "https://www.bloomberg.com/company/press/bloomberggpt-50-billion-parameter-llm-tuned-finance/",
+    "model": "",
+    "evidence": "论文 + Bloomberg 说明"
+  },
+  {
+    "id": "xuanyuan",
+    "name": "XuanYuan 2.0",
+    "year": "2023",
+    "organization": "度小满 / XuanYuan Team",
+    "parameters": "176B",
+    "baseModel": "BLOOM-176B",
+    "languages": [
+      "中文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "混合调优",
+    "access": "受限开放权重",
+    "license": "非商业研究许可",
+    "focus": [
+      "金融问答",
+      "中文对话"
+    ],
+    "summary": "千亿级中文金融对话模型，以 hybrid-tuning 联合通用与金融数据；权重可申请访问，但许可限制商业使用。",
+    "paper": "https://arxiv.org/abs/2305.12002",
+    "code": "https://huggingface.co/xyz-nlp/XuanYuan2.0",
+    "model": "https://huggingface.co/xyz-nlp/XuanYuan2.0",
+    "evidence": "论文 + 官方模型卡"
+  },
+  {
+    "id": "finma",
+    "name": "FinMA (PIXIU)",
+    "year": "2023",
+    "organization": "The Fin AI",
+    "parameters": "7B / 30B",
+    "baseModel": "LLaMA",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "指令微调",
+    "access": "受限开放权重",
+    "license": "模型卡条款",
+    "focus": [
+      "金融 NLP",
+      "数值问答",
+      "股票预测"
+    ],
+    "summary": "PIXIU 框架中的金融指令模型，使用约 136K 指令样本覆盖多类金融任务，并与统一 benchmark 和数据资源配套。",
+    "paper": "https://arxiv.org/abs/2306.05443",
+    "code": "https://github.com/The-FinAI/PIXIU",
+    "model": "https://huggingface.co/TheFinAI/finma-7b-full",
+    "evidence": "论文 + 官方仓库 + 模型卡"
+  },
+  {
+    "id": "fingpt",
+    "name": "FinGPT",
+    "year": "2023",
+    "organization": "AI4Finance Foundation",
+    "parameters": "多种 LoRA / 基座",
+    "baseModel": "LLaMA / ChatGLM 等",
+    "languages": [
+      "中文",
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "数据中心式微调",
+    "access": "开放代码与部分权重",
+    "license": "各模型卡不同",
+    "focus": [
+      "情感分析",
+      "预测",
+      "多任务"
+    ],
+    "summary": "开源金融 LLM 生态而非单一固定模型，包含自动化数据管线、指令数据、LoRA 权重、RAG 与量化交易实验。",
+    "paper": "https://arxiv.org/abs/2307.10485",
+    "code": "https://github.com/AI4Finance-Foundation/FinGPT",
+    "model": "https://huggingface.co/FinGPT",
+    "evidence": "论文 + 官方仓库 + HF 组织"
+  },
+  {
+    "id": "cfgpt",
+    "name": "CFGPT / CFLLM",
+    "year": "2023",
+    "organization": "Tongji FinLab",
+    "parameters": "7B",
+    "baseModel": "InternLM-7B",
+    "languages": [
+      "中文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "继续预训练 + SFT",
+    "access": "开放代码 / 权重状态见仓库",
+    "license": "以仓库为准",
+    "focus": [
+      "金融问答",
+      "文本生成",
+      "分析决策"
+    ],
+    "summary": "中文金融助手框架：CFData 含 141B 预训练 token 与 1.5M 指令对，CFLLM 采用两阶段领域适配，并配套应用框架。",
+    "paper": "https://arxiv.org/abs/2309.10654",
+    "code": "https://github.com/TongjiFinLab/CFGPT",
+    "model": "https://github.com/TongjiFinLab/CFGPT",
+    "evidence": "论文 + 官方仓库"
+  },
+  {
+    "id": "investlm",
+    "name": "InvestLM",
+    "year": "2023",
+    "organization": "HKUST / AbaciNLP",
+    "parameters": "65B LoRA",
+    "baseModel": "LLaMA-65B",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "高质量指令微调",
+    "access": "开放 LoRA",
+    "license": "依赖 LLaMA 许可",
+    "focus": [
+      "投资研究",
+      "CFA",
+      "SEC 文件"
+    ],
+    "summary": "用少量人工策划的投资指令数据对 LLaMA-65B 做 LoRA 微调，覆盖 CFA、SEC filings 与 Quant Finance 等专业场景。",
+    "paper": "https://arxiv.org/abs/2309.13064",
+    "code": "https://github.com/AbaciNLP/InvestLM",
+    "model": "https://github.com/AbaciNLP/InvestLM",
+    "evidence": "论文 + 官方仓库"
+  },
+  {
+    "id": "disc-finllm",
+    "name": "DISC-FinLLM",
+    "year": "2023",
+    "organization": "FudanDISC",
+    "parameters": "13B",
+    "baseModel": "Baichuan-13B-Chat",
+    "languages": [
+      "中文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "多专家指令微调",
+    "access": "开放权重",
+    "license": "以模型卡为准",
+    "focus": [
+      "金融咨询",
+      "计算",
+      "检索问答"
+    ],
+    "summary": "使用约 246K DISC-FIN-SFT 数据，通过多专家适配提升中文金融对话、任务处理、计算和检索增强能力。",
+    "paper": "https://arxiv.org/abs/2310.15205",
+    "code": "https://github.com/FudanDISC/DISC-FinLLM",
+    "model": "https://huggingface.co/Go4miii/DISC-FinLLM",
+    "evidence": "论文 + 官方仓库 + 模型卡"
+  },
+  {
+    "id": "fintral",
+    "name": "FinTral",
+    "year": "2024",
+    "organization": "UBC NLP",
+    "parameters": "7B",
+    "baseModel": "Mistral-7B",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本",
+      "表格",
+      "图像",
+      "数值"
+    ],
+    "stage": "预训练 + SFT + RLAIF/DPO",
+    "access": "开放代码与模型",
+    "license": "以模型卡为准",
+    "focus": [
+      "多模态分析",
+      "工具调用",
+      "RAG"
+    ],
+    "summary": "面向金融多模态分析的模型家族，联合领域预训练、指令微调与偏好优化，并将工具和检索纳入模型方案。",
+    "paper": "https://arxiv.org/abs/2402.10986",
+    "code": "https://github.com/UBC-NLP/fintral",
+    "model": "https://huggingface.co/UBC-NLP",
+    "evidence": "论文 + 官方仓库"
+  },
+  {
+    "id": "open-finllms",
+    "name": "FinLLaMA / FinLLaVA",
+    "year": "2024",
+    "organization": "The Fin AI",
+    "parameters": "8B",
+    "baseModel": "LLaMA 3 系列",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本",
+      "表格",
+      "时间序列",
+      "图像"
+    ],
+    "stage": "预训练 + SFT + 多模态微调",
+    "access": "开放权重",
+    "license": "以模型卡为准",
+    "focus": [
+      "金融知识",
+      "数值推理",
+      "图表理解",
+      "交易模拟"
+    ],
+    "summary": "Open-FinLLMs 家族：FinLLaMA 用 52B 金融 token 继续训练，FinLLaMA-instruct 用 573K 指令微调，FinLLaVA 再用 1.43M 图文指令扩展多模态。",
+    "paper": "https://arxiv.org/abs/2408.11878",
+    "code": "https://github.com/The-FinAI/PIXIU",
+    "model": "https://huggingface.co/TheFinAI/FinLLaVA",
+    "evidence": "论文 + 官方模型卡"
+  },
+  {
+    "id": "palmyra-fin",
+    "name": "Palmyra-Fin",
+    "year": "2024",
+    "organization": "Writer",
+    "parameters": "70B",
+    "baseModel": "Palmyra-X-003",
+    "languages": [
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "金融指令微调",
+    "access": "开放权重 + 商业 API",
+    "license": "Writer Open Model License",
+    "focus": [
+      "长文档",
+      "市场分析",
+      "监管文件"
+    ],
+    "summary": "面向金融机构长文档理解与分析的 70B/32K 开放权重模型；Writer 另提供 128K 商业 API 版本，两者应按版本分别报告。",
+    "paper": "https://writer.com/blog/palmyra-med-fin-models/",
+    "code": "https://dev.writer.com/home/models",
+    "model": "https://huggingface.co/Writer/Palmyra-Fin-70B-32K",
+    "evidence": "官方文档 + 官方模型卡"
+  },
+  {
+    "id": "fin-r1",
+    "name": "Fin-R1",
+    "year": "2025",
+    "organization": "SUFE-AIFLM Lab",
+    "parameters": "7B",
+    "baseModel": "DeepSeek-R1 distilled model",
+    "languages": [
+      "中文",
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "SFT + 强化学习",
+    "access": "开放代码与权重",
+    "license": "以仓库 / 基座为准",
+    "focus": [
+      "金融推理",
+      "数值推理"
+    ],
+    "summary": "面向金融复杂推理的 7B 模型，使用金融推理数据进行监督微调与强化学习，强调可验证的多步推理能力。",
+    "paper": "https://arxiv.org/abs/2503.16252",
+    "code": "https://github.com/SUFE-AIFLM-Lab/Fin-R1",
+    "model": "https://github.com/SUFE-AIFLM-Lab/Fin-R1",
+    "evidence": "论文 + 官方仓库"
+  },
+  {
+    "id": "dianjin-r1",
+    "name": "DianJin-R1",
+    "year": "2025",
+    "organization": "Qwen DianJin / Alibaba Cloud",
+    "parameters": "7B / 32B",
+    "baseModel": "Qwen2.5-Instruct",
+    "languages": [
+      "中文",
+      "英文"
+    ],
+    "modality": [
+      "文本"
+    ],
+    "stage": "推理增强 SFT + GRPO",
+    "access": "开放权重",
+    "license": "MIT（模型卡）",
+    "focus": [
+      "金融推理",
+      "合规判断",
+      "金融问答"
+    ],
+    "summary": "将 CFLUE、FinQA 与专有 CCC 合规语料组织为推理监督数据，再以格式与答案双奖励的 GRPO 强化；公开 7B 和 32B 权重。",
+    "paper": "https://arxiv.org/abs/2504.15716",
+    "code": "https://github.com/aliyun/qwen-dianjin",
+    "model": "https://huggingface.co/DianJin/DianJin-R1-7B",
+    "evidence": "论文 + 官方仓库 + 模型卡"
+  }
+]
