@@ -37,6 +37,7 @@ function rewriteForPages(html, route) {
     .replaceAll('href="/favicon.svg"', `href="${basePath}/favicon.svg"`)
     .replaceAll('content="/og.png"', `content="${pagesOrigin}${basePath}/og.png"`)
     .replaceAll('href="/general"', `href="${basePath}/general/"`)
+    .replaceAll('href="/models"', `href="${basePath}/models/"`)
     .replaceAll('href="/"', `href="${basePath}/"`)
     .replace("</head>", `<link rel="canonical" href="${canonical}"/><script>window.__FINEVAL_BASE_PATH__=${JSON.stringify(basePath)}</script></head>`);
 }
@@ -57,12 +58,13 @@ async function renderRoute(route, destination) {
 await Promise.all([
   renderRoute("/", path.join(outputRoot, "index.html")),
   renderRoute("/general", path.join(outputRoot, "general", "index.html")),
+  renderRoute("/models", path.join(outputRoot, "models", "index.html")),
 ]);
 
 await writeFile(path.join(outputRoot, ".nojekyll"), "", "utf8");
 await writeFile(
   path.join(outputRoot, "404.html"),
-  `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${basePath}/"><title>FinEval Atlas</title><a href="${basePath}/">Open FinEval Atlas</a>`,
+  `<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=${basePath}/"><title>FinLLM Atlas</title><a href="${basePath}/">Open FinLLM Atlas</a>`,
   "utf8",
 );
 
