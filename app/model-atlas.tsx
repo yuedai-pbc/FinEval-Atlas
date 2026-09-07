@@ -1,7 +1,7 @@
 "use client";
 import {useMemo,useState} from "react";
 
-type FinModel={id:string;name:string;year:string;organization:string;parameters:string;baseModel:string;languages:string[];modality:string[];stage:string;access:string;license:string;focus:string[];summary:string;paper:string;code:string;model:string;evidence:string};
+export type FinModel={id:string;name:string;year:string;organization:string;parameters:string;baseModel:string;languages:string[];modality:string[];stage:string;access:string;license:string;focus:string[];summary:string;paper:string;code:string;model:string;evidence:string};
 
 const accessFilters=["全部","开放权重","受限开放","未公开权重"];
 const modalityFilters=["全部","文本","多模态"];
