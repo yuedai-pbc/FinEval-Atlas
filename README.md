@@ -1,22 +1,23 @@
-# FinEval Atlas
+# FinLLM Atlas
 
-金融大模型评测导航与实验记录库  
-Financial LLM Evaluation Atlas and Experiment Log
+金融大模型 × 金融评测集双层图谱  
+Financial LLM × Evaluation Benchmark Atlas
 
 ## 中文简介
 
-`FinEval Atlas` 是一个围绕金融领域大模型评测的双语导航与实验记录项目，重点整理金融知识评测、金融安全、金融行业任务、金融智能体能力以及相关 benchmark 的使用经验。
+`FinLLM Atlas` 将原有 FinEval-Atlas 扩展为“模型层 × 评测层”双层研究图谱：模型层追踪金融领域预训练、指令模型、多模态模型和推理模型；评测层整理金融知识、安全、真实工作流、Agent 与 loop benchmark。
 
 本项目不是 FinEval 原始数据集或官方评测仓库，而是一个面向研究复现、模型比较和金融 AI 方法梳理的个人研究型索引。它旨在帮助研究者更清楚地理解金融大模型评测应覆盖哪些能力、如何记录实验、如何报告边界，以及如何避免把 benchmark 分数误读为真实金融业务能力。
 
 ## Project Overview
 
-`FinEval Atlas` is a bilingual research index and experiment log for financial large language model evaluation. It focuses on financial knowledge benchmarks, safety-oriented evaluation, industry-oriented tasks, financial agent capabilities, and practical notes for using related evaluation resources.
+`FinLLM Atlas` expands the original FinEval-Atlas into a two-layer research map: a model layer for domain-pretrained, instruction-tuned, multimodal, and reasoning-oriented financial LLMs, and an evaluation layer for knowledge, safety, real workflows, agents, and loop benchmarks.
 
 This repository is not the original FinEval dataset or its official benchmark implementation. Instead, it is a personal research-oriented atlas designed to support reproducible notes, model comparison, and structured thinking about financial AI evaluation. The goal is to make evaluation coverage, experiment assumptions, limitations, and reporting standards easier to inspect.
 
 ## 项目目标
 
+- 追踪金融大模型的机构、基座、参数规模、训练路线、模态、权重状态与许可证
 - 整理金融大模型评测任务、能力维度和公开 benchmark 资源
 - 记录不同模型在金融知识、推理、安全和工具使用场景中的实验设置
 - 提供中英双语的评测说明、结果记录模板和复现清单
@@ -25,6 +26,7 @@ This repository is not the original FinEval dataset or its official benchmark im
 
 ## Goals
 
+- Track financial models by organization, base model, scale, training route, modality, weight availability, and license
 - Organize financial LLM evaluation tasks, capability dimensions, and public benchmark resources
 - Track experiment settings for financial knowledge, reasoning, safety, and tool-use scenarios
 - Provide bilingual templates for evaluation notes, result logging, and reproducibility checks
@@ -34,7 +36,7 @@ This repository is not the original FinEval dataset or its official benchmark im
 ## Suggested Repository Structure
 
 ```text
-FinEval-Atlas/
+FinLLM-Atlas/
 ├── README.md
 ├── docs/
 │   ├── benchmark_map.md
@@ -48,6 +50,12 @@ FinEval-Atlas/
 └── sources/
     └── source_registry.csv
 ```
+
+## 在线图谱
+
+GitHub Pages: https://yuedai-pbc.github.io/FinEval-Atlas/
+
+首页现包含可筛选的金融模型图谱与原有金融 benchmark 图谱。当前仓库 URL 保持不变，站点品牌已升级为 FinLLM Atlas。
 
 ## 评测维度
 
