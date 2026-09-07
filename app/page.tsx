@@ -1,6 +1,5 @@
 import Explorer from "./explorer";
 import benchmarks from "../data/benchmarks.json";
-import models from "../data/models.json";
 import finsearchRaw from "../data/raw/finsearchcomp_demo.json";
 import FinChainSection from "./finchain-section";
 import PaperLibrary from "./paper-library";
@@ -14,10 +13,10 @@ export const metadata = {
 
 export default function Home() {
   return <>
-    <Explorer benchmarks={benchmarks} models={models} finsearchRaw={finsearchRaw} />
+    <Explorer benchmarks={benchmarks} finsearchRaw={finsearchRaw} />
     <main className="shell"><FinChainSection /></main>
-    <div className="shell"><div className="chapter"><span>05</span><div><b>HUMAN × AGENT LAYER</b><p>用人类基线、教学反馈和迁移测试闭合评测循环。</p></div></div></div>
+    <div className="shell"><div className="chapter"><span>04</span><div><b>HUMAN × AGENT LAYER</b><p>用人类基线、教学反馈和迁移测试闭合评测循环。</p></div></div></div>
     <HumanArenaDemo />
-    <main className="shell"><div className="chapter"><span>06</span><div><b>RESEARCH LIBRARY</b><p>最后进入 benchmark 深度档案与论文索引。</p></div></div><BenchmarkDeepDives benchmarks={benchmarks} /><PaperLibrary benchmarks={benchmarks} /></main>
+    <main className="shell"><div className="chapter"><span>05</span><div><b>RESEARCH LIBRARY</b><p>最后进入 benchmark 深度档案与论文索引。</p></div></div><BenchmarkDeepDives benchmarks={benchmarks} /><PaperLibrary benchmarks={benchmarks} /></main>
   </>;
 }
